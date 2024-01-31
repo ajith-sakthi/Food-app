@@ -12,7 +12,7 @@ const Cart=()=>{
             <h1 className="text-lg font-bold">Cart</h1>
             <button className="bg-indigo-300 p-2 m-2 hover:bg-indigo-500 rounded-lg" onClick={handlerClearItems}>Clear cart</button>
             <div className="w-6/12 m-auto">
-            {cartItems.length === 0 && "Your card is empty, add to cart"}
+            {cartItems.length === 0 && "Your cart is empty, add to cart"}
             <Itemlist items={cartItems}/>
             </div>
         </div>

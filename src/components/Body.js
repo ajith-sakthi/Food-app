@@ -21,7 +21,7 @@ const Body=()=>{
   const onlineStatus=useOnlinestatus();
   const PromotedCard=withPromotedcard(Rescards);
 
-  const {setName,loggedInuser}=useContext(Usercontext);
+
 
   useEffect(()=>{
         fetchData();
@@ -35,7 +35,9 @@ const Body=()=>{
 
     if(onlineStatus === false){
       return (
-        <h1>Hey dev looks link you're offline check your wifi or internet connection!!</h1>
+        <div className="text-center mt-6">
+        <h1 className="text-xl">Hey,looks like you're offline check your wifi or internet connection!!</h1>
+        </div>
       )
     }
 
@@ -71,12 +73,7 @@ const Body=()=>{
                     }
                     >Top ranked restaurant</button>
                 </div>
-                
-                <div className="ml-2"> 
-                  <label>Name :</label>
-                  <input type="text" className="ml-2 border border-black" 
-                  value={loggedInuser} onChange={(e)=>setName(e.target.value)}/>
-                </div>
+              
             </div>
 
             

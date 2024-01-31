@@ -3,12 +3,9 @@ import Itemlist from "./Itemlist";
 
 
 const Restaurantcategory=({data,showItems,setshowIndex})=>{
-    // console.log(data);
-    // const[showItems,setshowItems]= useState(false);
+   
 
     const accordian=()=>{
-    //     console.log("clicked")
-    //     setshowItems(!showItems);
         setshowIndex();
     }
     

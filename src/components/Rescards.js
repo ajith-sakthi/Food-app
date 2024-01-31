@@ -1,18 +1,15 @@
 import {CARD_URL} from "../utils/constants"
-import Usercontext from "../utils/Usercontext"
-import {useContext} from "react";
+
 const Rescards=(props)=>{
     
     const {resData} =props
 
     const{cloudinaryImageId,name,cuisines,avgRating,costForTwo}=resData?.info
 
-    const {loggedInuser}=useContext(Usercontext);
-    // console.log({loggedInuser})
     
     return (
             
-            <div data-testid="testCards" className="w-80 h-[500px] p-2 m-2 bg-indigo-100 hover:bg-indigo-200 rounded-lg" >
+            <div data-testid="testCards" className="w-80 h-[450px] p-2 m-2 bg-indigo-100 hover:bg-indigo-200 rounded-lg" >
                 <img className="rounded-lg w-full h-[200px]" alt ="logo" 
                 src={ CARD_URL+ cloudinaryImageId}/>
                 <h3 className="text-lg font-bold py-2">{name}</h3>
@@ -20,7 +17,7 @@ const Rescards=(props)=>{
                 <p className="py-2" >{avgRating + " Stars"}</p>
                 <p className="py-2">{costForTwo}</p>
                 <p className="py-2">36 minutes</p> 
-                <p className="py-2">{loggedInuser}</p>
+               
             </div>
     )
 }

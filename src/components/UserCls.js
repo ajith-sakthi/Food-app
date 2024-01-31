@@ -1,9 +1,10 @@
 import React from "react";
+import {ABOUT_PAGE_IMG_URL } from "../utils/constants";
 
 class UserCls extends React.Component{
     constructor(props){
         super(props);
-        console.log(props);
+       
 
         this.state={
             userInfo:{
@@ -22,15 +23,20 @@ class UserCls extends React.Component{
         })
     }
     render(){
-        console.log("child render")
+       
         const{name,location,avatar_url}=this.state.userInfo;
         //Never update state variable directly it doesn't update
         return(
-            <div className="user-card">
-                {/* <img src={avatar_url}/> */}
-                <h2>Name:{name}</h2>
-                <h3>Location:{location} </h3>
-                <h4>contact:@curiousdev </h4>
+            <div className="flex justify-center items-center mt-[5%] ">
+                <div className="w-1/4">
+                <img alt="image" src= {ABOUT_PAGE_IMG_URL} />
+                </div>
+                
+                <div>
+                <h2 className="text-lg font-bold">Founder:{name}</h2>
+                <h3 className="text-lg font-bold">Location:{location} </h3>
+                <p className="text-xl italic">This project is done by the <span className="font-bold text-cyan-400">React</span> with swiggy's API</p>
+                </div>
             </div>
         )
     }
