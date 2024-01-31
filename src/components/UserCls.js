@@ -1,45 +1,47 @@
 import React from "react";
-import {ABOUT_PAGE_IMG_URL } from "../utils/constants";
+import { ABOUT_PAGE_IMG_URL } from "../utils/constants";
 
-class UserCls extends React.Component{
-    constructor(props){
-        super(props);
-       
+class UserCls extends React.Component {
+  constructor(props) {
+    super(props);
 
-        this.state={
-            userInfo:{
-                name:"Ajith",
-                location:"default"
-            }
-        }
-    }
-   
-    async componentDidMount(){
-            const data = await fetch("https://api.github.com/users/ajith-sakthi");
-            const json= await data.json()
+    this.state = {
+      userInfo: {
+        name: "Ajith",
+        location: "default",
+      },
+    };
+  }
 
-            this.setState({
-                userInfo:json
-        })
-    }
-    render(){
-       
-        const{name,location,avatar_url}=this.state.userInfo;
-        //Never update state variable directly it doesn't update
-        return(
-            <div className="flex justify-center items-center mt-[5%] ">
-                <div className="w-1/4">
-                <img alt="image" src= {ABOUT_PAGE_IMG_URL} />
-                </div>
-                
-                <div>
-                <h2 className="text-lg font-bold">Founder:{name}</h2>
-                <h3 className="text-lg font-bold">Location:{location} </h3>
-                <p className="text-xl italic">This project is done by the <span className="font-bold text-cyan-400">React</span> with swiggy's API</p>
-                </div>
-            </div>
-        )
-    }
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/ajith-sakthi");
+    const json = await data.json();
+
+    this.setState({
+      userInfo: json,
+    });
+  }
+  render() {
+    const { name, location, avatar_url } = this.state.userInfo;
+    //Never update state variable directly it doesn't update
+    return (
+      <div className="flex justify-center items-center mt-[5%] ">
+        <div className="w-1/4">
+          <img alt="image" src={ABOUT_PAGE_IMG_URL} />
+        </div>
+
+        <div>
+          <h2 className="text-lg font-bold">Founder:{name}</h2>
+          <h3 className="text-lg font-bold">Location:{location} </h3>
+          <p className="text-xl italic">
+            This project is done by the{" "}
+            <span className="font-bold text-cyan-400">React</span> with swiggy's
+            API
+          </p>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default UserCls;
