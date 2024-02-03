@@ -23,7 +23,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  fetchData = async () => {
+  
+  const fetchData = async () => {
     const data = await fetch(RESCARDSMAIN_API);
     const json = await data.json();
     setlistOfRestaurant(

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
-import Contact from "./components/Contact";
+// import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Resmenu from "./components/Resmenu"
 import {createBrowserRouter,RouterProvider, Outlet} from "react-router-dom";
@@ -15,9 +15,9 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 
 
-const Grocery = lazy(()=>{
-    return import("./components/Grocery")
-});
+const Contact = lazy (()=>{
+    return import("./components/Contact")
+})
 const Applayout=() =>{
 
     const[Name,setName]=useState();
@@ -66,12 +66,13 @@ const appRouter=createBrowserRouter([
             },
             {
                 path:"/contact",
-                element:<Contact/>
+               element:<Suspense fallback={<h1>Loading....</h1>}><Contact/></Suspense>
+                // element:<Contact/>
             },
-            {
-                path:"/grocery",
-                element:<Suspense fallback={<h1>Loading....</h1>}><Grocery/></Suspense>
-            },
+            // {
+            //     path:"/grocery",
+            //     element:<Suspense fallback={<h1>Loading....</h1>}><Grocery/></Suspense>
+            // },
             {
                 path:"/restaurants/:resId",
                 element:<Resmenu/>
